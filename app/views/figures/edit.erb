@@ -1,0 +1,43 @@
+<form action="/figures/<%= @figure.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="put">
+
+  <h2>New Figure</h2>
+  <label for="figure_name">Figure Name?</label><br>
+  <input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>" /><br>
+
+
+
+  <h2>New Title</h2>
+  <label for="new_title">Title Name?</label><br>
+  <input id="new_title" type="text" name="title[name]" /><br>
+
+  <%Title.all.each do |title|%>
+    <input type="checkbox" name="figure[title_id]" id="title_<%= title.id %>" value="<%=title.id%>"><%=title.name%></input>
+  <%end%>
+
+
+
+  <h2>New Landmark</h2>
+
+
+  <label for="new_landmark">Landmark Name?</label><br>
+  <input id="new_landmark" type="text" name="landmark[name]" /><br>
+
+  <!-- <label for="landmark_id">Figure ID?</label><br>
+  <input id="landmark_id" type="text" name="figure[landmark_ids][]" /><br> -->
+
+  <label for="landmark_year">Landmark Year Completed?</label><br>
+  <input id="landmark_year" type="text" name="landmark[year_completed]" /><br>
+
+  <%Landmark.all.each do |landmark|%>
+    <input type="checkbox" name="figure[landmark_id]" id="landmark_<%= landmark.id %>" value="<%=landmark.id%>"><%=landmark.name%></input>
+  <%end%>
+
+
+
+  <!-- <h2>New Figure Title</h2>
+  <label for="figure_title_id">Title ID?</label><br>
+  <input id="figure_title_id" type="text" name="figure[title_ids][]" /><br> -->
+
+  <input type="submit" value="Edit Figure">
+</form>

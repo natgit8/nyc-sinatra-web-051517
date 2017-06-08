@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <tr>
+    <td><%= @figure.name %></td>
+  </tr>
+<table>
+<ul>
+  <% @figure.landmarks.each do |land| %>
+  <li><%= land.name %></li>
+  <% end %>
+</ul>
